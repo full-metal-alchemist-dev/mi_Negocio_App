@@ -16,5 +16,6 @@ Si estás usando Windows 7, la versión 8.0.26 debería ser la última que funci
 
 Es importante tener en cuenta que Windows 7 ya no recibe soporte oficial de Microsoft, lo que podría generar problemas de seguridad y compatibilidad en el futuro. Si es posible, te recomendaría considerar actualizar tu sistema operativo a una versión más reciente para una mejor compatibilidad con software moderno.
 
+![1744006949160](image/README/1744006949160.png)
 
 ![alt text](<Screenshot 2025-04-06 215408.png>)
