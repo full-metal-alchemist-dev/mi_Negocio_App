@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="FacturaDataSource">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:DataSourceID>8a1a1c3d-dc43-49aa-bc3d-f61a6a3f02e1</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="FacturaDataSet">
+      <Fields>
+        <Field Name="Producto">
+          <DataField>Producto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Cantidad">
+          <DataField>Cantidad</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PrecioUnitario">
+          <DataField>PrecioUnitario</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>FacturaDataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Textbox Name="txtEncabezado">
+        <Value>EMPRESA XYZ S.A.\nRUC: 1234567890001\nTel: 2222-2222\nFecha: =Now()</Value>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Center</TextAlign>
+        </Style>
+        <Top>0cm</Top>
+        <Left>0cm</Left>
+        <Height>1.5cm</Height>
+        <Width>5.8cm</Width>
+        <CanGrow>true</CanGrow>
+      </Textbox>
+
+      <Tablix Name="TablixDetalle">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn><Width>2.2cm</Width></TablixColumn>
+            <TablixColumn><Width>1cm</Width></TablixColumn>
+            <TablixColumn><Width>1.3cm</Width></TablixColumn>
+            <TablixColumn><Width>1.3cm</Width></TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.5cm</Height>
+              <TablixCells>
+                <TablixCell><CellContents><Textbox Name="txtProducto"><Value>=Fields!Producto.Value</Value></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="txtCantidad"><Value>=Fields!Cantidad.Value</Value></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="txtPU"><Value>=FormatCurrency(Fields!PrecioUnitario.Value)</Value></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="txtTotal"><Value>=FormatCurrency(Fields!Total.Value)</Value></Textbox></CellContents></TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <DataSetName>FacturaDataSet</DataSetName>
+        <TablixColumnHierarchy>
+          <TablixMembers><TablixMember /><TablixMember /><TablixMember /><TablixMember /></TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers><TablixMember /></TablixMembers>
+        </TablixRowHierarchy>
+        <Top>2cm</Top>
+        <Left>0cm</Left>
+        <Height>0.5cm</Height>
+        <Width>5.8cm</Width>
+      </Tablix>
+
+      <Textbox Name="txtTotalFinal">
+        <Value>="TOTAL: " & FormatCurrency(Sum(Fields!Total.Value))</Value>
+        <Top>5cm</Top>
+        <Left>0cm</Left>
+        <Height>0.5cm</Height>
+        <Width>5.8cm</Width>
+        <Style>
+          <FontSize>9pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Right</TextAlign>
+        </Style>
+      </Textbox>
+
+      <Textbox Name="txtFooter">
+        <Value>Gracias por su compra</Value>
+        <Top>6cm</Top>
+        <Left>0cm</Left>
+        <Height>0.5cm</Height>
+        <Width>5.8cm</Width>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Center</TextAlign>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>7cm</Height>
+  </Body>
+  <Page>
+    <PageHeight>15cm</PageHeight>
+    <PageWidth>5.8cm</PageWidth>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
+    <TopMargin>0cm</TopMargin>
+    <BottomMargin>0cm</BottomMargin>
+  </Page>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>6b7b7d6d-00ee-4f23-9cd2-a2bd13fc01f0</rd:ReportID>
+</Report>
